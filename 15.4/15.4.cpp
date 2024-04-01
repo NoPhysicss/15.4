@@ -1,52 +1,43 @@
 ﻿#include <iostream>
 
-void odd(const int N)
+void nums(const int N, bool tf)
 {
-    for (int i = 1; i <= N; i++)
+    for (int i = tf; i <= N; i += 2)
     {
-        if ((i % 2) == 1)
-        {
-            std::cout << i << " | ";
-        }
+        std::cout << i << " | ";
     }
 }
-void writh(const int N)
-{
-    for (int i = 1; i <= N; i++)
-    {
-        if ((i % 2) == 0)
-        {
-            std::cout << i << " | ";
-        }
-    }
-}
+
 
 int main()
 {
-    int a = 0;
+    int n = 0;
     std::cout << "enter number from 0 to N\n";
     std::cout << "N = ";
-    std::cin >> a;
+    std::cin >> n;
 
 
-    int b = 0;
+     std::string userinput;
+     bool tf;
 
-    std::cout << "for even numbers write 2, and for odd numbers write 1: ";
-    std::cin >> b;
+    std::cout << "for even numbers write |false|, and for odd numbers write |true|: ";
+    std::cin >> userinput;
 
+    if (userinput == "false")
+    {
+        tf = false;
+    }
+    else if (userinput == "true")
+    {
+        tf = true;
+    }
+    else
+    {
+        std::cout << "realy?";
+        return 1;
+    }
 
-        if (b == 2)
-        {
-            writh(a);
-        }
-        else if (b == 1)
-        {
-            odd(a);
-        }
-        else if ((b != 2) && (b != 1))
-        {
-            std::cout << "realy?";
-            return 1;
-        }
+    nums(n, tf);
+
     return 0;
 }
